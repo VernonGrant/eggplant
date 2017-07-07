@@ -1,6 +1,6 @@
-;;; Eggplant-theme.el --- Emacs theme with a dark background.
+;;; eggplant-theme.el --- Emacs theme with a dark background.
 
-;; Copyright (C) 2014 , Vernon Grant
+;; Copyright (C) 2016 , Vernon Grant
 
 ;; Author: Vernon Grant
 ;; https://github.com/VernonGrant/eggplant
@@ -28,7 +28,7 @@
 
 ;;; Code:
 
- (deftheme Eggplant)
+ (deftheme eggplant)
  (let ((class '((class color) (min-colors 89)))
        (fg1 "#a3a3a3")
        (fg2 "#959595")
@@ -50,7 +50,7 @@
        (var     "#e0e0e0")
        (warning "#b05454"))
    (custom-theme-set-faces
-   'Eggplant
+   'eggplant
         `(default ((,class (:background ,bg1 :foreground ,fg1))))
         `(font-lock-builtin-face ((,class (:foreground ,builtin))))
         `(font-lock-comment-face ((,class (:foreground ,comment))))
@@ -68,7 +68,7 @@
         `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
 	`(hl-line ((,class (:background  ,bg2))))
 	`(fringe ((,class (:background ,bg2 :foreground ,fg4))))
-	`(cursor ((,class (:background ,bg3))))
+	`(cursor ((,class (:background ,keyword :foreground, builtin))))
         `(show-paren-match-face ((,class (:background ,warning))))
         `(isearch ((,class (:bold t :foreground ,warning :background ,bg3))))
         `(mode-line ((,class (:box (:line-width 1 :color nil) :bold t :foreground ,fg4 :background ,bg2))))
@@ -79,7 +79,7 @@
 	`(vertical-border ((,class (:foreground ,fg3))))
         `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
         `(default-italic ((,class (:italic t))))
-	`(link ((,class (:foreground ,const :underline t))))
+	`(link ((,class (:foreground ,keyword :underline t))))
 	`(org-code ((,class (:foreground ,fg2))))
 	`(org-hide ((,class (:foreground ,fg4))))
         `(org-level-1 ((,class (:bold t :foreground ,fg2 :height 1.1))))
@@ -229,27 +229,45 @@
         `(web-mode-function-name-face ((,class (:inherit ,font-lock-function-name-face))))
         `(web-mode-string-face ((,class (:foreground ,str))))
         `(web-mode-type-face ((,class (:inherit ,font-lock-type-face))))
-        `(web-mode-html-attr-name-face ((,class (:foreground ,func))))
-        `(web-mode-html-attr-value-face ((,class (:foreground ,keyword))))
+        `(web-mode-html-attr-name-face ((,class (:foreground ,builtin))))
+        `(web-mode-html-attr-value-face ((,class (:foreground ,str))))
         `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
-        `(web-mode-html-tag-face ((,class (:foreground ,builtin))))
+        `(web-mode-html-tag-face ((,class (:foreground ,keyword))))
         `(jde-java-font-lock-package-face ((t (:foreground ,var))))
         `(jde-java-font-lock-public-face ((t (:foreground ,keyword))))
         `(jde-java-font-lock-private-face ((t (:foreground ,keyword))))
         `(jde-java-font-lock-constant-face ((t (:foreground ,const))))
         `(jde-java-font-lock-modifier-face ((t (:foreground ,key3))))
         `(jde-jave-font-lock-protected-face ((t (:foreground ,keyword))))
-        `(jde-java-font-lock-number-face ((t (:foreground ,var))))))
+        `(jde-java-font-lock-number-face ((t (:foreground ,var))))
+        `(neo-banner-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-button-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-root-dir-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-dir-link-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-file-link-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-banner-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-expand-btn-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-added-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-edited-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-removed-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-up-to-date-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-conflict-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-ignored-face ((,class (:foreground ,comment :background ,bg1 :bold t))))
+        `(neo-vc-needs-merge-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-needs-update-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-missing-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        `(neo-vc-unlocked-changes-face ((,class (:foreground ,fg1 :background ,bg1 :bold t))))
+        ))
 
 ;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'Eggplant)
+(provide-theme 'eggplant)
 
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
 
-;;; Eggplant-theme.el ends here
+;;; eggplant-theme.el ends here
